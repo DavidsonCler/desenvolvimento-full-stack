@@ -7,43 +7,130 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <title>Projeto</title>
+    <title class="title">Shopping Delivery</title>
 </head>
 
-<body>
-     <!-- Cabeçalho de informações do sistema -->
+<body background="https://res.cloudinary.com/practicaldev/image/fetch/s--FNm6M500--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/80ywr4mbxogncowbkjxc.gif">
+    <!-- background="E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_front\meu_app_front\imgifg\gif." -->
     <header>
-        <div class="title">
-            <h2>Lista de Compras</h2>
-        </div>
-        <div class="banner">
-            <img src="https://images.contentstack.io/v3/assets/blt45c082eaf9747747/bltbcca43584b660977/5de0b6aa703bd50385f981ad/Header-5.jpg?width=1200&height=630&fit=crop"
-                alt="y">
-        </div>
+           
+    <div id="title-1" class="title">
+        <h2>Pedidos Cadastrados</h2>
+    </div>
+    <div id="title-2" class="title">
+        <h2>Pedido</h2>
+    </div>
+
+    <div id="title-3">
+        <h1 class="rainbowText">Space Pedidos</h1>
+    </div>
+    <div>
+        <div class="container"> 
+            <div class="btn-holder">
+                <button id="btn-order" onclick="switchVisibleMenu(1)" class="glow-on-hover">Inserir Pedido</button>
+                <button  onclick="getListOrder(1)" class="glow-on-hover">Detalhes do Pedido</button>  
+            </div>
+        </div> 
+        <img width="280" title="cart" src="https://img3.gratispng.com/dy/b80795b46283902024cfea37a27dd45f/L0KzQYi4UsE3N2k5UZGAYUO3doq3gBU1bGhmT5C7M0S4RYa9V8E2OWQ5SqM5Nki8Q4i6TwBvbz==/5a34f90ce4d7a7.2345556715134210689373.png" alt="y">
+    </div>
+    
+    <div id="txtArea">
+    <textarea id="txt" class="comment" placeholder="Escreva aqui seu comentário:"  name="comentarios"></textarea>
+    <button id="btnTxt" onclick="addCommentBtn()" class="glow-on-hover-txt" >Inserir</button>
+    </div>
     </header>
-
-     <!-- Opções para adicionar um novo item -->
-    <section class="newItem">
-        <input type="text" id="newInput" placeholder="Adicionar novo item:">
-        <input type="text" id="newQuantity" placeholder="Quantidade:">
-        <input type="text" id="newPrice" placeholder="Valor:">
-        <span onclick="newItem()" class="addBtn">Adicionar</span>
+     <!-- Opções para adicionar um novo Pedido -->
+     <div id="menu-1">
+        <div id="input-1">
+    <section class="newOrder">
+        <input type="text" id="newCPF" placeholder="CPF:">
+        <input type="text" id="newClient" title="Nome do Cliente" placeholder="Nome:">
+        <input title="Digite o endereço" type="text" id="newAddress" placeholder="Endereço:">
+        <input type="text" title="Insira telefone" id="newMobile" placeholder="Telefone:">
+        <span onclick="newOrder()" class="addBtn">Adicionar</span>
+        </div> 
     </section>
-
     <!-- Tabela com items existentes -->
-    <section class="items">
-        <table id="myTable">
+    <section class="orders">
+        <table id="orderTable">
+        
+            <tr> <th colspan="8" class="titleTab"> Pedidos Cadastrados</th>
             <tr>
-                <th>Nome</th>
-                <th>Quantidade</th>
-                <th>Valor</th>
-                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
+                <th class="dataRow">Nota fiscal</th>
+                <th class="dataRow">CPF</th>
+                <th class="dataRow">Cliente</th>
+                <th class="dataRow">Telefone</th>
+                <th class="dataRow">Endereço</th>
+                <th class="dataRow">Valor total</th>
+               <th><img src="https://www.nicepng.com/png/detail/207-2078186_comment-free-icon-comment-free-download.png" width="15" height="15px" alt="comment"> </th>
+               <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px" alt="remove"></th>
+    
+            </div>
             </tr>
         </table>
     </section>
+    </div>
+    <!-- <table> -->
+        <!-- <tr onclick='window.location.href="google.com";'> -->
+          <!-- <td>Hello</td> -->
+          <!-- <td>We are cells</td> -->
+          <!-- <td onclick='event.stopPropagation();return false;'>Click Me</td> -->
+        <!-- </tr> -->
+      <!-- </table> -->
 
-    <script src="scripts.js"></script>
-</body>
+    <div id="menu-2">
+       <section class="newOrder">
+            <input type="text" id="itemName" placeholder="Nome do produto:">
+            <input type="text" id="itemQtd" title="Digite a quantidade do produto à inserir" placeholder="Quantidade:">
+            <input title="Digite o valor unitário" type="text" id="itemValue" placeholder="Valor:">
+            <span onclick="prodcpd()" class="addBtn">Adicionar</span>
+        </section>
+    
+        <!-- Tabela com produtos do pedido -->
+        <section class="orders">
+            <table id="itemTable">
+                    <tr> <th colspan="6" class="titleTab"> Produtos do pedido</th><tr>
+                    <tr>
+                    <th>Nota Fiscal</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Subtotal</th>
+                    <!-- <th><img src="E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_front\meu_app_front\img\trash.png" width="15px" height="15px"></th> -->
+                    <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px" alt="remove"></th>
+                </tr>
+            </table>
+        </section>
+        </div>
+
+        <section class="orders">
+            <table id="comments">
+                    <tr> <th colspan="6" class="titleTab">Comentários</th><tr>
+                    <tr>
+                    <th>Texto</th>
+                    <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px" alt="remove"></th>
+                </tr>
+            </table>
+        </section>
+        </div>
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> -->
+            <!-- $(function() { -->
+            <!-- $('table td').on('click', function() { -->
+              <!-- if ($(this).index() == 2) { -->
+                <!-- return false; // disable 3rd column -->
+              <!-- } -->
+            <!-- }); -->
+            <!-- $('table tr').on('click', function() { -->
+              <!-- alert('You click the row'); -->
+            <!-- }); -->
+          <!-- });</script> -->
+    <script src="scripts.js">
+        
+    </script>
+   
+    
+    </body>
 
 </html>
 

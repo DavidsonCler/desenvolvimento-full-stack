@@ -1,0 +1,54 @@
+[2023-04-25 19:27:51,180] INFO _log() L224   * Running on all addresses (0.0.0.0)
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.232:5000 (Press CTRL+C to quit) - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:27:51,187] INFO _log() L224   * Restarting with stat - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:28:20,257] WARNING add_pedido() L69   Erro ao adicionar o pedido do Cliente: 'Josiclésio Fonte Seca', ('Pedido com a mesma NF já salvo na base :/', 'Josiclésio Fonte Seca') - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\app.py L69  
+[2023-04-25 19:28:20,258] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:28:20] "[31m[1mPOST /pedido HTTP/1.1[0m" 409 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:28:38,698] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:28:38] "POST /pedido HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:28:43,168] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:28:43] "POST /produto HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:28:46,644] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:28:46] "POST /produto HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:28:50,183] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:28:50] "POST /produto HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:29:00,297] ERROR log_exception() L1449 Exception on /produtos_pedido [GET] - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask\app.py L1449
+Traceback (most recent call last):
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask_openapi3\scaffold.py", line 109, in wrapper
+    resp = _do_wrapper(
+           ^^^^^^^^^^^^
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\flask_openapi3\do_wrapper.py", line 135, in _do_wrapper
+    response = func(**request_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\app.py", line 237, in get_produtos_pedido
+    produtos_pedido: Produto[produtos] = session.query(Produto).where(produtos.pedido_nf == pedido_nf)
+                                                                      ^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'pedido_nf'
+[2023-04-25 19:29:00,338] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:29:00] "[35m[1mGET /produtos_pedido?produto.fk_pedido=2 HTTP/1.1[0m" 500 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:30:00,549] INFO _log() L224   * Detected change in 'E:\\Program_code\\Repo\\desenvolvimento-full-stack-1\\desenvolvimento-full-stack-basico\\aula-3\\meu_app_api\\app.py', reloading - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:30:00,654] INFO _log() L224   * Restarting with stat - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:30:03,728] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:30:03] "GET /produtos_pedido?produto.fk_pedido=2 HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:30:32,514] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:30:32] "GET /produtos_pedido?produto.fk_pedido=1 HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:30:52,948] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:30:52] "GET /produtos_pedido?pedido_nf=1 HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:30:58,875] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:30:58] "GET /produtos_pedido?pedido_nf=3 HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:31:05,503] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:31:05] "GET /produtos_pedido?pedido_nf=2 HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:31:12,807] INFO _log() L224   * Detected change in 'E:\\Program_code\\Repo\\desenvolvimento-full-stack-1\\desenvolvimento-full-stack-basico\\aula-3\\meu_app_api\\app.py', reloading - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:31:12,924] INFO _log() L224   * Restarting with stat - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:31:28,963] INFO _log() L224   * Detected change in 'E:\\Program_code\\Repo\\desenvolvimento-full-stack-1\\desenvolvimento-full-stack-basico\\aula-3\\meu_app_api\\app.py', reloading - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:31:29,066] INFO _log() L224   * Restarting with stat - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:31:36,327] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:31:36] "GET /produtos_pedido?pedido_nf=3 HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:32:19,441] INFO _log() L224   * Detected change in 'E:\\Program_code\\Repo\\desenvolvimento-full-stack-1\\desenvolvimento-full-stack-basico\\aula-3\\meu_app_api\\app.py', reloading - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:32:19,560] INFO _log() L224   * Restarting with stat - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 
+[2023-04-25 19:32:25,302] INFO _log() L224  127.0.0.1 - - [25/Apr/2023 19:32:25] "GET /produtos_pedido?pedido_nf=1 HTTP/1.1" 200 - - call_trace=E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_api\env\Lib\site-packages\werkzeug\_internal.py L224 

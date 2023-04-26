@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title class="title">Shopping Delivery</title>
+</head>
+
+<body background="https://res.cloudinary.com/practicaldev/image/fetch/s--FNm6M500--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/80ywr4mbxogncowbkjxc.gif">
+    <!-- background="E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_front\meu_app_front\imgifg\gif." -->
+    <header>
+           
+    <div id="title-1" class="title">
+        <h2>Pedidos Cadastrados</h2>
+    </div>
+    <div id="title-2" class="title">
+        <h2>Pedido</h2>
+    </div>
+
+    <div id="title-3">
+        <h1 class="rainbowText">Space Pedidos</h1>
+    </div>
+    <div>
+        <div class="container"> 
+            <div class="btn-holder">
+                <button id="btn-order" onclick="switchVisibleMenu()" class="glow-on-hover">Inserir Pedido</button>
+                <button  onclick="getSelectedOrder()" class="glow-on-hover">Detalhes do Pedido</button>  
+            </div>
+        </div> 
+        <img width="280" title="cart" src="https://img3.gratispng.com/dy/b80795b46283902024cfea37a27dd45f/L0KzQYi4UsE3N2k5UZGAYUO3doq3gBU1bGhmT5C7M0S4RYa9V8E2OWQ5SqM5Nki8Q4i6TwBvbz==/5a34f90ce4d7a7.2345556715134210689373.png" alt="y">
+    </div>
+    
+    <div id="txtArea">
+    <textarea id="txt" class="comment" placeholder="Escreva aqui seu comentário:"  name="comentarios"></textarea>
+    <button id="btnTxt"  onclick="addOrderComment();" class="glow-on-hover-txt" >Inserir</button>
+    </div>
+    </header>
+     <!-- Opções para adicionar um novo Pedido -->
+     <div id="menu-1">
+        <div id="input-1" >
+    <section class="newOrder">
+        <input type="text" id="newCPF" placeholder="CPF:">
+        <input type="text" id="newClient" title="Nome do Cliente" placeholder="Nome:">
+        <input title="Digite o endereço" type="text" id="newAddress" placeholder="Endereço:">
+        <input type="text" title="Insira telefone" id="newMobile" placeholder="Telefone:">
+        <span onclick="newOrder()" class="addBtn">Adicionar</span>
+        </div>
+    </section>
+    <!-- Tabela com items existentes -->
+    <section class="orders">
+        <table id="orderTable">
+          
+            <tr> <th colspan="8" class="titleTab"> Pedidos Cadastrados</th>
+            <tr>
+                <th>Nota fiscal</th>
+                <th>CPF</th>
+                <th>Cliente</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Valor total</th>
+               <th><img src="https://www.nicepng.com/png/detail/207-2078186_comment-free-icon-comment-free-download.png" width="15" height="15px" alt="comment"> </th>
+               <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px" alt="remove"></th>
+            </div>
+            </tr>
+        </table>
+    </section>
+    </div>
+    <!-- <table> -->
+        <!-- <tr onclick='window.location.href="google.com";'> -->
+          <!-- <td>Hello</td> -->
+          <!-- <td>We are cells</td> -->
+          <!-- <td onclick='event.stopPropagation();return false;'>Click Me</td> -->
+        <!-- </tr> -->
+      <!-- </table> -->
+
+    <div id="menu-2">
+       <section  class="newOrder">
+            <input type="text" id="itemName" placeholder="Nome do produto:">
+            <input type="text" id="itemQtd" title="Digite a quantidade do produto à inserir" placeholder="Quantidade:">
+            <input title="Digite o valor unitário" type="text" id="itemValue" placeholder="Valor:">
+            <span onclick="newOrder()" class="addBtn">Adicionar</span>
+        </section>
+    
+        <!-- Tabela com produtos do pedido -->
+        <section class="orders">
+            <table id="itemTable">
+                    <tr> <th colspan="6" class="titleTab"> Produtos do pedido</th><tr>
+                    <tr>
+                    <th>Nota Fiscal</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Subtotal</th>
+                    <!-- <th><img src="E:\Program_code\Repo\desenvolvimento-full-stack-1\desenvolvimento-full-stack-basico\aula-3\meu_app_front\meu_app_front\img\trash.png" width="15px" height="15px"></th> -->
+                    <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px" alt="remove"></th>
+                </tr>
+            </table>
+        </section>
+        </div>
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> -->
+            <!-- $(function() { -->
+            <!-- $('table td').on('click', function() { -->
+              <!-- if ($(this).index() == 2) { -->
+                <!-- return false; // disable 3rd column -->
+              <!-- } -->
+            <!-- }); -->
+            <!-- $('table tr').on('click', function() { -->
+              <!-- alert('You click the row'); -->
+            <!-- }); -->
+          <!-- });</script> -->
+    <script src="scripts.js">
+        
+    </script>
+   
+    
+    </body>
+
+</html>
+
+
