@@ -2,8 +2,9 @@ from sqlalchemy import Column, String, Integer, DateTime, Float
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from typing import Union
+from sqlalchemy import ForeignKey
 
-from  model import Base, Comentario
+from model import Base
 
 
 class Produto(Base):
@@ -13,16 +14,22 @@ class Produto(Base):
     nome = Column(String(140), unique=True)
     quantidade = Column(Integer)
     valor = Column(Float)
-    data_insercao = Column(DateTime, default=datetime.now())
+    valor_total = Column(Float)
+    data_pedido = Column(DateTime, default=datetime.now())
 
-    # Definição do relacionamento entre o produto e o comentário.
-    # Essa relação é implicita, não está salva na tabela 'produto',
-    # mas aqui estou deixando para SQLAlchemy a responsabilidade
-    # de reconstruir esse relacionamento.
-    comentarios = relationship("Comentario")
+   
+    # Definição do relacionamento entre o produto e um pedido.
+    # Aqui está sendo definido a coluna 'produto' que vai guardar
+    # a referencia ao produto, a chave estrangeira que relaciona
+    # um produto ao comentário.
+    pedido = Column(Integer, ForeignKey("produto.pk_pedido"), nullable=False)
+   
+   
+   
+   
 
-    def __init__(self, nome:str, quantidade:int, valor:float,
-                 data_insercao:Union[DateTime, None] = None):
+    def __init__(self, nome: str, quantidade: int, valor: float, valor_total: float,
+                 data_pedido: Union[DateTime, None] = None):
         """
         Cria um Produto
 
@@ -30,18 +37,19 @@ class Produto(Base):
             nome: nome do produto.
             quantidade: quantidade que se espera comprar daquele produto
             valor: valor esperado para o produto
-            data_insercao: data de quando o produto foi inserido à base
+            valor_total: valor referente à cada produto de acordo com a quantidade
+            data_pedido: data de quando o produto foi inserido à base
         """
         self.nome = nome
         self.quantidade = quantidade
         self.valor = valor
+        self.valor_total = valor_total
 
         # se não for informada, será o data exata da inserção no banco
-        if data_insercao:
-            self.data_insercao = data_insercao
+        if data_pedido:
+            self.data_pedido = data_pedido
 
-    def adiciona_comentario(self, comentario:Comentario):
-        """ Adiciona um novo comentário ao Produto
-        """
-        self.comentarios.append(comentario)
-
+    def valor_produto_total(self):
+        valor_total = self.quantidade * self.valor
+        self.valor_total = valor_total
+        return self.valor_total
